@@ -1,6 +1,8 @@
 # numberss_test
 Тестовое задание Numbers
 Моя версия выполнения тестового задания от Numbers.
+Ссылка на Google Sheets документ:
+https://docs.google.com/spreadsheets/d/1qYmwm0EHR5xc-lkv6nBocEbdcLR7nOyFsjyCSrwkIdA/edit#gid=0
 
 Для запуска локально, необходимо создать в корне приложения файл .env
 
