@@ -4,16 +4,18 @@
 Ссылка на Google Sheets документ:
 https://docs.google.com/spreadsheets/d/1qYmwm0EHR5xc-lkv6nBocEbdcLR7nOyFsjyCSrwkIdA/edit#gid=0
 
+В директории /app поместите ваш токен-учетные данные в формате JSON, полученный из Google Console
+
 Для запуска локально, необходимо создать в корне приложения файл .env
 
-POSTGRES_DB = "Имя вашей БД"
-POSTGRES_USER = "Имя пользователя БД"
-POSTGRES_PASSWORD = "Пароль пользователя БД"
-POSTGRES_HOST = "Имя хоста с БД"
-TABLE_NAME="Имя таблицы"
-TELEGRAM_TOKEN = "Ключ полученный от BotFather"
-TELEGRAM_USER_ID = "ID вашего Telegram аккаунта"
-SPREADSHEET_NAME="Название документа на Google "
+POSTGRES_DB = "Имя вашей БД"  
+POSTGRES_USER = "Имя пользователя БД" 
+POSTGRES_PASSWORD = "Пароль пользователя БД"  
+POSTGRES_HOST = "Имя хоста с БД"  
+TABLE_NAME="Имя таблицы"  
+TELEGRAM_TOKEN = "Ключ полученный от BotFather" 
+TELEGRAM_USER_ID = "ID вашего Telegram аккаунта"  
+SPREADSHEET_NAME="Название документа на Google "  
 
 
 Для запуска используйте main_app.py.
