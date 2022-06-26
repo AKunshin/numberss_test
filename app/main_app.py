@@ -22,7 +22,6 @@ update_list = []
 
 
 def db_controller():
-<<<<<<< HEAD
     """Управление работой БД"""
     update_time = open_gs().lastUpdateTime
     print(f"Время обновления на сервере {update_time}")
@@ -50,20 +49,6 @@ def send_command_read():
     print("Обновлений нет")
     # print(f"Имеющиеся данные в БД: \n {old_data} \n {datetime.now()}")
     # Вывод данных для демонстрации работы. Лучше отключить print для снижения нагрузки
-=======
-    """Управление операциями с БД"""
-    read_update_time = get_update_time()
-    if write_update_time != read_update_time:
-        print("Получены обновления - запись в БД")
-        print("Данные успешно обновлены")
-        status_tg = tg_send_message()
-        print(status_tg)
-        write_update_time = read_update_time
-    else:
-        old_data = read_from_db()
-        print("Обновлений нет. Имеющиеся данные в БД: \n")
-        print(f"Данные из БД: \n {old_data}")
->>>>>>> bd72b0474fcf2bf2741b7689db2bf25f3610d604
 
 
 def tg_send_message():

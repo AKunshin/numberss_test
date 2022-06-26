@@ -1,5 +1,4 @@
 import os
-import re
 import pandas as pd
 import sqlalchemy as sa
 
@@ -26,13 +25,9 @@ connection = engine.connect()
 def write_data_to_db():
     """Запись таблицы в БД"""
     writed_data = gsheet2df()
-<<<<<<< HEAD
     writed_data["срок поставки"] = pd.to_datetime(writed_data["срок поставки"],
                                                   dayfirst=True)
     # Преобразование даты в столбце "срок поставки"
-=======
-    w_update_time = get_update_time()
->>>>>>> bd72b0474fcf2bf2741b7689db2bf25f3610d604
     try:
         writed_data.to_sql(f"{TABLE_NAME}",
                            con=engine,
