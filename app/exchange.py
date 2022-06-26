@@ -25,7 +25,8 @@ def exchange_to_rubles():
     except:
         print("Сайт ЦБ РФ не ответил")
         dollar_exchange_rate = 53.32
-    return dollar_exchange_rate
+    finally:
+        return dollar_exchange_rate
 
 
 def print_exchange():

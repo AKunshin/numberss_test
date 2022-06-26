@@ -3,7 +3,7 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials as sac
 import pandas as pd
 
-from exchange import exchange_to_rubles, get_current_date
+from exchange import exchange_to_rubles
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -33,14 +33,10 @@ def open_gs():
     return sheet
 
 
-def get_update_time():
-    """Получаем время последнего обновления таблицы"""
-    update_time = open_gs().lastUpdateTime
-    now_with_tz = get_current_date()
-    print(
-        f"Время обновления: {update_time} \t--- Текущее время: {now_with_tz} ---"
-    )
-    return update_time
+# def get_update_time():
+#     """Получаем время последнего обновления таблицы"""
+#     update_time = open_gs().lastUpdateTime
+#     return update_time
 
 
 def gsheet2df():
@@ -58,9 +54,7 @@ def gsheet2df():
             dollar_exchange_rate, 2)
     except Exception as ex:
         print("Ошибка в столбце 'стоимость,$", ex)
-    finally:
-        print(df)
-        return df
+    return df
 
 
 if __name__ == '__main__':

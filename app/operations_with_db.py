@@ -1,4 +1,5 @@
 import os
+import re
 import pandas as pd
 import sqlalchemy as sa
 
@@ -25,6 +26,9 @@ connection = engine.connect()
 def write_data_to_db():
     """Запись таблицы в БД"""
     writed_data = gsheet2df()
+    writed_data["срок поставки"] = pd.to_datetime(writed_data["срок поставки"],
+                                                  dayfirst=True)
+    # Преобразование даты в столбце "срок поставки"
     try:
         writed_data.to_sql(f"{TABLE_NAME}",
                            con=engine,
@@ -34,7 +38,7 @@ def write_data_to_db():
                                "№": sa.types.INTEGER(),
                                "заказ №": sa.types.INTEGER(),
                                "стоимость,$": sa.types.Float(),
-                               "срок поставки": sa.Date(),
+                               "срок поставки": sa.types.Date(),
                                "стоимость в руб": sa.types.Float()
                            })
         connection.execute(f"GRANT SELECT ON {TABLE_NAME} TO {USER_DB};")
@@ -71,3 +75,4 @@ def find_late_orders():
 
 if __name__ == '__main__':
     write_data_to_db()
+    print("Для корректной работы, запустите main_app.py")
