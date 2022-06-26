@@ -2,7 +2,7 @@ import os
 import pandas as pd
 import sqlalchemy as sa
 
-from get_data_from_google import gsheet2df
+from get_data_from_google import gsheet2df, get_update_time
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -25,6 +25,7 @@ connection = engine.connect()
 def write_data_to_db():
     """Запись таблицы в БД"""
     writed_data = gsheet2df()
+    w_update_time = get_update_time()
     try:
         writed_data.to_sql(f"{TABLE_NAME}",
                            con=engine,
@@ -44,7 +45,7 @@ def write_data_to_db():
         if connection:
             connection.close()
             print("Соединение закрыто")
-    return writed_data
+    return w_update_time
 
 
 def read_from_db():

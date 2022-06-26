@@ -13,15 +13,22 @@ TOKEN = os.getenv('TELEGRAM_TOKEN')
 TELEGRAM_USER_ID = os.getenv('TELEGRAM_USER_ID')
 # ID Пользователя Телеграм
 bot = telebot.TeleBot(TOKEN)
+write_update_time = write_data_to_db()
 
 
 def db_controller():
     """Управление операциями с БД"""
-    writed_data = write_data_to_db()
-    print("Данные успешно обновлены")
-    status_tg = tg_send_message()
-    print(status_tg)
-    print(f"Данные из БД: \n {writed_data}")
+    read_update_time = get_update_time()
+    if write_update_time != read_update_time:
+        print("Получены обновления - запись в БД")
+        print("Данные успешно обновлены")
+        status_tg = tg_send_message()
+        print(status_tg)
+        write_update_time = read_update_time
+    else:
+        old_data = read_from_db()
+        print("Обновлений нет. Имеющиеся данные в БД: \n")
+        print(f"Данные из БД: \n {old_data}")
 
 
 def tg_send_message():
