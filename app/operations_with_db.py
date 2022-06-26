@@ -3,7 +3,7 @@ import re
 import pandas as pd
 import sqlalchemy as sa
 
-from get_data_from_google import gsheet2df
+from get_data_from_google import gsheet2df, get_update_time
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -26,9 +26,13 @@ connection = engine.connect()
 def write_data_to_db():
     """Запись таблицы в БД"""
     writed_data = gsheet2df()
+<<<<<<< HEAD
     writed_data["срок поставки"] = pd.to_datetime(writed_data["срок поставки"],
                                                   dayfirst=True)
     # Преобразование даты в столбце "срок поставки"
+=======
+    w_update_time = get_update_time()
+>>>>>>> bd72b0474fcf2bf2741b7689db2bf25f3610d604
     try:
         writed_data.to_sql(f"{TABLE_NAME}",
                            con=engine,
@@ -48,7 +52,7 @@ def write_data_to_db():
         if connection:
             connection.close()
             print("Соединение закрыто")
-    return writed_data
+    return w_update_time
 
 
 def read_from_db():
