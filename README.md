@@ -6,7 +6,7 @@ https://docs.google.com/spreadsheets/d/1qYmwm0EHR5xc-lkv6nBocEbdcLR7nOyFsjyCSrwk
 
 В директории /app поместите ваш токен-учетные данные в формате JSON, полученный из Google Console
 
-Для запуска локально, необходимо создать в корне приложения файл .env
+Для запуска локально, необходимо создать в корне приложения файл .env (!кавычки обязательно!)
 
 POSTGRES_DB = "Имя вашей БД"  
 POSTGRES_USER = "Имя пользователя БД" 
@@ -22,7 +22,7 @@ SPREADSHEET_NAME="Название документа на Google"
 Для запуска в Docker-compose внесите свои данные в Dockerfile, как в дирректории /app, (!кавычки тут не использовать!)  
 
 ENV POSTGRES_DB=Имя вашей БД  
-ENV POSTGRES_USER=Имя пользователя БД 
+ENV POSTGRES_USER=Имя пользователя БД   
 ENV POSTGRES_PASSWORD=Пароль пользователя БД  
 ENV POSTGRES_HOST=Имя хоста с БД (При запуске в Docker-compose укажите здесь просто db )  
 ENV TABLE_NAME=Имя таблицы  
