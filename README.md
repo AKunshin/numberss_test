@@ -26,8 +26,8 @@ ENV POSTGRES_USER=Имя пользователя БД
 ENV POSTGRES_PASSWORD=Пароль пользователя БД  
 ENV POSTGRES_HOST=Имя хоста с БД (При запуске в Docker-compose укажите здесь просто db )  
 ENV TABLE_NAME=Имя таблицы  
-ENV TELEGRAM_TOKEN=Ключ полученный от BotFather 
-ENV TELEGRAM_USER_ID=ID вашего Telegram аккаунта"(id можно получить у @userinfobot) 
+ENV TELEGRAM_TOKEN=Ключ полученный от BotFather   
+ENV TELEGRAM_USER_ID=ID вашего Telegram аккаунта"(id можно получить у @userinfobot)   
 ENV SPREADSHEET_NAME=Название документа на Google 
 
 так и в дирректории /database:  
